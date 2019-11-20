@@ -1,0 +1,94 @@
+<h4>Gestão de Alunos</h4>
+
+<div class="card col s12" style="padding: 10px;">
+
+	<div class="col s4">
+
+		<form>
+
+			<div class="row">
+				<div class="input-field col s12">
+					<input placeholder="Informe seu nome" [(ngModel)]="usuario.name" name="name" type="text" class="validate">
+					<label for="first_name">Nome</label>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12">
+					<input placeholder="Informe seu e-mail"[(ngModel)]="usuario.email" name="email" type="email" class="validate">
+					<label for="first_name">Email</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12">
+					<input placeholder="Informe seu username" [(ngModel)]="usuario.username" name="username"  type="text" class="validate">
+					<label for="first_name">username</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12">
+					<select [(ngModel)]='usuario.turma_id' name="turmaid">
+          <option [value]="'1 Semestre'">1 Semestre</option>
+          <option [value]="'2 Semestre'">2 Semestre</option>
+          <option [value]="'3 Semestre'">3 Semestre</option>
+          <option [value]="'4 Semestre'">4 Semestre</option>
+          </select>
+					<label>Turma</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12">
+					<input placeholder="infore sua senha" [(ngModel)]="usuario.password" name="password" type="password" class="validate">
+					<label for="first_name">senha</label>
+				</div>
+			</div>
+
+			<div class="row center">
+				<a class="btn-floating btn-small waves-effect waves-light green" (click)="salvarAluno()">
+					<i class="material-icons">create</i></a>
+			</div>
+
+		</form>
+
+
+	</div>
+
+	<div class="col s8">
+
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>email</th>
+					<th>username</th>
+          <th>Turma</th>
+					<th>Ação</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr *ngFor="let usuario of listaUsuario">
+					<td>{{usuario.id}}</td>
+					<td>{{usuario.name}}</td>
+					<td>{{usuario.email}}</td>
+					<td>{{usuario.username}}</td>
+          <td>{{usuario.turma_id}}</td>
+					<td>
+						<a (click)="editar(usuario)"
+							class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">edit</i></a>
+						<a (click)="deletarAluno(usuario)"
+							class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+
+	</div>
+
+</div>
