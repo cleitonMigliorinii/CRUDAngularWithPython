@@ -19,45 +19,20 @@ export class GestaoAcademicoComponent implements OnInit {
     this.buscarTodosUsuarios();
   }
 
-   buscarTodosUsuarios() {
-    return this.http.doPost('buscarTodosUsuarios',null).subscribe(retorno => {
-      if (retorno != null) {
-        this.listaUsuario = retorno;
-        return this.listaUsuario;
-      }
-    });
+  buscarTodosUsuarios() {
+
   }
 
   salvarAluno(){
-
-    return this.http.doPost('salvarUsuario',this.usuario).subscribe(retorno => {
-
-        if(retorno.code === 200){
-          this.usuario = new Object();
-          alert('Sucesso !')
-          this.buscarTodosUsuarios();
-        }
-    }, err =>{
-      alert('Problema ao gravar !')
-    });
 
 
   }
 
   editar(usuario){
-    this.usuario = usuario;
+
   }
 
-   deletarAluno(usuario){
-
-    return this.http.doPost('deletarAluno',usuario).subscribe(retorno => {
-
-        if(retorno.code === 200){
-          this.buscarTodosUsuarios();
-        }
-    }, err =>{
-      alert('Problema ao gravar !')
-    });
+  deletarAluno(usuario){
 
 
   }
